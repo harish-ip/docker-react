@@ -1,0 +1,43 @@
+to start a docker compose file below are the commands:
+
+"docker-compose up --build" this is to build and making it up
+"docker-compose up" this is only to making it up
+=====================================
+4-1-2020
+
+Recently, a bug was introduced with the latest Create React App version
+ that is causing the React app to exit when starting with Docker Compose.
+
+To Resolve this:
+
+Add stdin_open property to your docker-compose.yml file
+
+  web:
+    stdin_open: true
+Make sure you rebuild your con
+
+tainers after making this change with  docker-compose down && docker-compose up --build
+
+https://github.com/facebook/create-react-app/issues/8688
+
+https://stackoverflow.com/questions/60790696/react-scripts-start-exiting-in-docker-foreground-cmd
+
+================================================
+
+Shorthand with Docker compose:
+
+docker run -p 3000:3000 -v /app/node_modules -v ${PWD}:/app < container_id >
+create a docker compose file and run
+****to execute docker-compose file below is the command:
+<docker-compose up>
+
+=============================================================
+Windows not Detecting Changes - Docker Compose
+updated 4-21-2020
+
+If you are using any version of Windows and your React app is not automatically reloading after a code change, you can add this environment variable to your compose file:
+
+services:
+  web:
+    environment:
+      - CHOKIDAR_USEPOLLING=true
