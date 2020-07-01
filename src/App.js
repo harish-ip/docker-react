@@ -8,8 +8,8 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          OM NAMAH SHIVAYA..
-          Sri anjaneyam...
+          
+          This is change on the feature branch..
 
         </p>
         <a
