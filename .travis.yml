@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t harish-ip/docker-react -f Docker.dev .
+
+script:
+  - docker run -e CI=true harish-ip/docker-react npm run test  
